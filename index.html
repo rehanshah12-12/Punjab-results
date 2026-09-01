@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punjab Board Results 2026</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+        body { background:#f0f4f8; }
+        .header { background:#1a237e; color:white; padding:20px; text-align:center; }
+        .header h1 { font-size:24px; }
+        .container { max-width:1000px; margin:20px auto; padding:0 15px; }
+        .ad-box { background:#f5f5f5; padding:15px; margin:20px 0; text-align:center; border-radius:10px; border:2px dashed #ccc; min-height:80px; }
+        .ad-box p { color:#999; font-size:14px; }
+        .search-card { background:white; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
+        .search-card select, .search-card input { padding:12px; margin:8px 0; border:2px solid #ddd; border-radius:8px; font-size:16px; width:100%; max-width:250px; }
+        .search-card button { padding:12px 40px; background:#1a237e; color:white; border:none; border-radius:8px; font-size:18px; cursor:pointer; width:100%; max-width:250px; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:20px; }
+        .board-card { background:white; padding:15px; border-radius:10px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.08); cursor:pointer; border-left:4px solid #1a237e; }
+        .board-card h3 { color:#1a237e; font-size:14px; }
+        .footer { background:#1a237e; color:white; text-align:center; padding:15px; margin-top:30px; }
+    </style>
+</head>
+<body>
+<div class="header"><h1>📚 Punjab Boards Result 2026</h1><p>9th & 10th Class - All BISE Punjab</p></div>
+<div class="container">
+    <div class="ad-box"><p>📢 [TOP AD] - Yahan AdSense/Adsterra Code Paste Karein</p></div>
+    <div class="search-card">
+        <h2 style="margin-bottom:15px;color:#1a237e;">🔍 Check Result</h2>
+        <select id="boardSelect">
+            <option value="">-- Select Board --</option>
+            <option value="https://result.biselahore.com/">BISE Lahore</option>
+            <option value="https://biserawalpindi.edu.pk/">BISE Rawalpindi</option>
+            <option value="https://web.bisemultan.edu.pk/">BISE Multan</option>
+            <option value="https://bisefsd.edu.pk/">BISE Faisalabad</option>
+            <option value="https://bisegrw.edu.pk/">BISE Gujranwala</option>
+            <option value="https://bisesahiwal.edu.pk/">BISE Sahiwal</option>
+            <option value="https://bisedgkhan.edu.pk/">BISE DG Khan</option>
+            <option value="https://bisebwp.edu.pk/">BISE Bahawalpur</option>
+        </select><br>
+        <input type="text" id="rollNo" placeholder="Enter Roll Number"><br>
+        <button onclick="checkResult()">✅ Check Result</button>
+    </div>
+    <div class="ad-box"><p>📢 [MIDDLE AD] - Yahan AdSense/Adsterra Code Paste Karein</p></div>
+    <h2 style="margin-top:30px;color:#1a237e;text-align:center;">🏛️ All Punjab Boards</h2>
+    <div class="grid" id="boardGrid"></div>
+    <div class="ad-box"><p>📢 [BOTTOM AD] - Yahan AdSense/Adsterra Code Paste Karein</p></div>
+</div>
+<div class="footer"><p>© 2026 Punjab Results | Free Service</p></div>
+<script>
+    const boards = [
+        { name: "BISE Lahore", url: "https://result.biselahore.com/" },
+        { name: "BISE Rawalpindi", url: "https://biserawalpindi.edu.pk/" },
+        { name: "BISE Multan", url: "https://web.bisemultan.edu.pk/" },
+        { name: "BISE Faisalabad", url: "https://bisefsd.edu.pk/" },
+        { name: "BISE Gujranwala", url: "https://bisegrw.edu.pk/" },
+        { name: "BISE Sahiwal", url: "https://bisesahiwal.edu.pk/" },
+        { name: "BISE DG Khan", url: "https://bisedgkhan.edu.pk/" },
+        { name: "BISE Bahawalpur", url: "https://bisebwp.edu.pk/" }
+    ];
+    const grid = document.getElementById('boardGrid');
+    boards.forEach(board => {
+        const card = document.createElement('div');
+        card.className = 'board-card';
+        card.innerHTML = `<h3>🏛️ ${board.name}</h3>`;
+        card.onclick = () => { window.open(board.url, '_blank'); };
+        grid.appendChild(card);
+    });
+    function checkResult() {
+        const boardUrl = document.getElementById('boardSelect').value;
+        const roll = document.getElementById('rollNo').value.trim();
+        if (!boardUrl) { alert('Pehle Board select karein!'); return; }
+        if (!roll) { alert('Roll number likhein!'); return; }
+        window.open(boardUrl, '_blank');
+    }
+    document.getElementById('rollNo').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') { checkResult(); }
+    });
+</script>
+</body>
+</html>
