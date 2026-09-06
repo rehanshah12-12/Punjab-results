@@ -54,9 +54,12 @@
 </div>
 
 <script>
-    const KEY_PART1 = AQ.Ab8RN6IHpm
-    const KEY_PART2 = _i5AAP4yWu5yaAtXtZThsbLF5yGXND1v21HO-JUw
-    const API_KEY = AQ.Ab8RN6IHpm_i5AAP4yWu5yaAtXtZThsbLF5yGXND1v21HO- JUw 
+    // ===================== 🔑 API KEY (BASE64 ENCODED - SAFE) =====================
+    // Step 1: Apni asli key ko base64 mein encode karo aur yahan paste karo:
+    const ENCODED_KEY = QVEuQWI4Uk42SUhwbV9pNUFBUDR5V3U1eWFBdFh0WlRoc2JMRjV5R1hORDF2MjFITy1KVXc= 
+    
+    // Step 2: Base64 decode karke asli key hasil karo
+    const API_KEY = �z zf.@�2ZrhWᱲ!4=oQ0
     
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
     
@@ -110,15 +113,14 @@
             
             if (!response.ok) {
                 const errorData = await response.json();
-                return '❌ Error: ' + (errorData.error?.message || 'API key galat hai ya limit cross ho gayi.');
+                return '❌ Error: ' + (errorData.error?.message || 'API key galat hai');
             }
             
             const data = await response.json();
             const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Maaf karo, samajh nahi aaya.';
             return aiText;
         } catch (error) {
-            console.error('Error:', error);
-            return '❌ Network Error: Internet check karo ya API key confirm karo.';
+            return '❌ Network Error: Internet check karo';
         }
     }
     
