@@ -3,70 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot - Punjab Results</title>
+    <title>Punjab Board Results 2026 - 9th & 10th Class</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background: #0a192f; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .chat-container { max-width: 700px; width: 100%; background: #141b2b; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow: hidden; }
-        .chat-header { background: #1a237e; padding: 20px; text-align: center; border-bottom: 3px solid #ff9800; }
-        .chat-header h1 { color: white; font-size: 22px; }
-        .chat-header p { color: #aaa; font-size: 13px; margin-top: 4px; }
-        .chat-messages { height: 450px; overflow-y: auto; padding: 20px; background: #0a0e1a; }
-        .message { margin-bottom: 15px; display: flex; flex-direction: column; max-width: 85%; }
+        body { background: #f4f7fc; }
+        
+        /* --- NAVIGATION --- */
+        .top-bar { background: #0a192f; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .top-bar .logo { font-size: 22px; font-weight: bold; color: #ff9800; }
+        .top-bar .logo span { color: white; }
+        .top-bar .nav-links a { color: #ddd; text-decoration: none; margin-left: 20px; font-size: 14px; transition: 0.3s; }
+        .top-bar .nav-links a:hover { color: #ff9800; }
+        
+        /* --- HERO --- */
+        .hero { background: linear-gradient(135deg, #0a192f 0%, #1a237e 100%); color: white; padding: 40px 20px; text-align: center; }
+        .hero h1 { font-size: 32px; margin-bottom: 5px; }
+        .hero p { opacity: 0.8; margin-bottom: 20px; }
+        .search-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 25px; border-radius: 16px; max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; border: 1px solid rgba(255,255,255,0.2); }
+        .search-box select, .search-box input { padding: 14px 18px; border-radius: 10px; border: none; font-size: 16px; min-width: 180px; flex: 1; }
+        .search-box button { padding: 14px 40px; background: #ff9800; color: #0a192f; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .search-box button:hover { background: #ffb74d; transform: scale(1.02); }
+        
+        /* --- MAIN CONTENT --- */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 30px; }
+        .main-content { flex: 2; min-width: 300px; }
+        .sidebar { flex: 1; min-width: 250px; }
+        .post-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px; border-left: 5px solid #1a237e; transition: 0.3s; }
+        .post-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); transform: translateY(-3px); }
+        .post-card h2 { font-size: 22px; color: #0a192f; margin-bottom: 8px; }
+        .post-card .meta { font-size: 13px; color: #777; margin-bottom: 12px; }
+        .post-card p { color: #444; line-height: 1.7; margin-bottom: 12px; }
+        .read-more { color: #ff9800; font-weight: bold; text-decoration: none; }
+        .widget { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px; }
+        .widget h3 { color: #0a192f; border-bottom: 3px solid #ff9800; padding-bottom: 10px; margin-bottom: 15px; font-size: 18px; }
+        .widget ul { list-style: none; }
+        .widget ul li { margin-bottom: 10px; }
+        .widget ul li a { color: #1a237e; text-decoration: none; }
+        .widget ul li a:hover { color: #ff9800; }
+        .whatsapp-widget { background: #25D366; color: white; text-align: center; padding: 15px; border-radius: 12px; }
+        .whatsapp-widget a { color: white; font-size: 18px; font-weight: bold; text-decoration: none; display: block; }
+        .whatsapp-widget i { font-size: 30px; margin-right: 10px; vertical-align: middle; }
+        
+        /* --- FLOATING BUTTONS --- */
+        .float-wa, .float-ai { position: fixed; width: 60px; height: 60px; border-radius: 50%; text-align: center; font-size: 32px; line-height: 60px; z-index: 999; cursor: grab; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: 0.3s; }
+        .float-wa { bottom: 25px; right: 25px; background: #25D366; color: white; animation: pulse 2s infinite; }
+        .float-wa:hover { transform: scale(1.1); background: #128C7E; }
+        .float-wa a, .float-ai a { color: white; display: block; }
+        .float-ai { bottom: 100px; right: 25px; background: #1a237e; color: white; }
+        .float-ai:hover { transform: scale(1.1); background: #ff9800; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        
+        /* --- CHAT POPUP (Modal) --- */
+        .chat-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; }
+        .chat-overlay.active { display: flex; }
+        .chat-popup { background: #141b2b; max-width: 500px; width: 95%; max-height: 90vh; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.8); position: relative; }
+        .chat-popup .chat-header { background: #1a237e; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ff9800; }
+        .chat-popup .chat-header h2 { color: white; font-size: 18px; }
+        .chat-popup .close-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; }
+        .chat-messages { height: 350px; overflow-y: auto; padding: 15px 20px; background: #0a0e1a; }
+        .message { margin-bottom: 12px; display: flex; flex-direction: column; max-width: 85%; }
         .message.user { align-self: flex-end; align-items: flex-end; }
         .message.bot { align-self: flex-start; align-items: flex-start; }
-        .message .bubble { padding: 12px 18px; border-radius: 16px; font-size: 15px; line-height: 1.6; word-wrap: break-word; }
+        .message .bubble { padding: 10px 16px; border-radius: 16px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
         .message.user .bubble { background: #ff9800; color: #0a192f; border-bottom-right-radius: 4px; }
         .message.bot .bubble { background: #1a237e; color: white; border-bottom-left-radius: 4px; }
-        .message .time { font-size: 11px; color: #666; margin-top: 4px; padding: 0 5px; }
-        .input-area { display: flex; gap: 10px; padding: 15px 20px 20px; background: #141b2b; border-top: 1px solid #1a237e; }
-        .input-area input { flex: 1; padding: 14px 18px; border: none; border-radius: 30px; background: #0a0e1a; color: white; font-size: 15px; outline: none; border: 1px solid #1a237e; }
-        .input-area input::placeholder { color: #666; }
-        .input-area button { padding: 14px 30px; background: #ff9800; color: #0a192f; border: none; border-radius: 30px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .input-area button:hover { background: #ffb74d; transform: scale(1.02); }
-        .input-area button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-        @media (max-width: 600px) {
-            .chat-messages { height: 350px; padding: 15px; }
-            .input-area input { font-size: 14px; padding: 12px 16px; }
-            .input-area button { padding: 12px 20px; font-size: 14px; }
+        .message .time { font-size: 10px; color: #666; margin-top: 3px; padding: 0 5px; }
+        .chat-input { display: flex; gap: 8px; padding: 12px 15px 15px; background: #141b2b; border-top: 1px solid #1a237e; }
+        .chat-input input { flex: 1; padding: 12px 16px; border: none; border-radius: 30px; background: #0a0e1a; color: white; font-size: 14px; outline: none; border: 1px solid #1a237e; }
+        .chat-input input::placeholder { color: #666; }
+        .chat-input button { padding: 12px 20px; background: #ff9800; color: #0a192f; border: none; border-radius: 30px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .chat-input button:hover { background: #ffb74d; }
+        .chat-input button:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        /* --- FOOTER --- */
+        .footer { background: #0a192f; color: #aaa; text-align: center; padding: 30px 20px; margin-top: 40px; }
+        .footer a { color: #ff9800; text-decoration: none; margin: 0 10px; }
+        .footer a:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; gap: 10px; }
+            .top-bar .nav-links a { margin: 0 10px; }
+            .search-box { flex-direction: column; align-items: stretch; }
+            .float-wa { width: 50px; height: 50px; font-size: 26px; line-height: 50px; bottom: 15px; right: 15px; }
+            .float-ai { width: 50px; height: 50px; font-size: 24px; line-height: 50px; bottom: 75px; right: 15px; }
+            .chat-popup { max-width: 98%; }
         }
     </style>
 </head>
 <body>
 
-<div class="chat-container">
-    <div class="chat-header">
-        <h1>🤖 Punjab AI Assistant</h1>
-        <p>Ask me anything about results, exams, or education!</p>
+<!-- ===== NAVIGATION ===== -->
+<div class="top-bar">
+    <div class="logo">📚 <span>Punjab</span>Results</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Results</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
     </div>
+</div>
 
-    <div class="chat-messages" id="chatMessages">
-        <div class="message bot">
-            <div class="bubble">👋 Assalam-o-Alaikum! Main AI Assistant hoon. Apni board result ya koi bhi sawal poochh sakte hain!</div>
-            <span class="time">Just now</span>
+<!-- ===== HERO + SEARCH ===== -->
+<div class="hero">
+    <h1>🏛️ Punjab Boards Result 2026</h1>
+    <p>9th & 10th Class - Check Online by Roll Number, Name & Gazette</p>
+    <div class="search-box">
+        <select id="boardSelect">
+            <option value="">-- Select Board --</option>
+            <option value="https://result.biselahore.com/">BISE Lahore</option>
+            <option value="https://biserawalpindi.edu.pk/">BISE Rawalpindi</option>
+            <option value="https://web.bisemultan.edu.pk/">BISE Multan</option>
+            <option value="https://bisefsd.edu.pk/">BISE Faisalabad</option>
+            <option value="https://bisegrw.edu.pk/">BISE Gujranwala</option>
+            <option value="https://bisesahiwal.edu.pk/">BISE Sahiwal</option>
+            <option value="https://bisedgkhan.edu.pk/">BISE DG Khan</option>
+            <option value="https://bisebwp.edu.pk/">BISE Bahawalpur</option>
+            <option value="https://bisesargodha.edu.pk/">BISE Sargodha</option>
+            <option value="https://fbise.edu.pk/">FBISE Islamabad</option>
+        </select>
+        <input type="text" id="rollNo" placeholder="Enter Roll Number">
+        <button onclick="checkResult()">✅ Check Result</button>
+    </div>
+    <p style="font-size:12px; margin-top:10px; opacity:0.6;">Roll number daalein aur official website par result dekhein.</p>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+    <div class="main-content">
+        <h2 style="color:#0a192f; margin-bottom:20px; border-left:5px solid #ff9800; padding-left:15px;">📰 Latest Result Updates</h2>
+        <div class="post-card">
+            <h2><a href="#">BISE Lahore 9th Class Result 2026 – Check by Roll No</a></h2>
+            <div class="meta"><i class="fas fa-calendar-alt"></i> September 2, 2026 by <strong>Admin</strong></div>
+            <p>Students who appeared in the BISE Lahore 9th Class Annual Examination 2026 are now waiting for their result...</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        <div class="post-card">
+            <h2><a href="#">BISE Sargodha 9th Class Result 2026 – Check Online</a></h2>
+            <div class="meta"><i class="fas fa-calendar-alt"></i> September 2, 2026 by <strong>Admin</strong></div>
+            <p>Students who appeared in the BISE Sargodha 9th Class Annual Examination 2026 are waiting for their results...</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        <div class="post-card">
+            <h2><a href="#">BISE Multan 9th Class Result 2026 – Check By Roll No</a></h2>
+            <div class="meta"><i class="fas fa-calendar-alt"></i> September 1, 2026 by <strong>Admin</strong></div>
+            <p>Students who appeared in the BISE Multan 9th Class Annual Examination 2026 are now waiting for their marks...</p>
+            <a href="#" class="read-more">Read More →</a>
         </div>
     </div>
+    <div class="sidebar">
+        <div class="widget"><h3>ℹ️ About Us</h3><p style="font-size:14px; color:#555; line-height:1.6;">Pakistan Educational Result Information Portal.</p></div>
+        <div class="widget whatsapp-widget"><a href="https://whatsapp.com/channel/0029VbDQOGA6rsQzIeG9IQ1b" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp Channel</a></div>
+        <div class="widget"><h3>🔗 Quick Links</h3><ul><li><a href="#">Home</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    </div>
+</div>
 
-    <div class="input-area">
-        <input type="text" id="userInput" placeholder="Type your message..." />
-        <button id="sendBtn">➤ Send</button>
+<!-- ===== FOOTER ===== -->
+<div class="footer"><p>© 2026 Punjab Results. All Rights Reserved. | <a href="#">Privacy</a> | <a href="#">Contact</a></p></div>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="float-wa" id="whatsappBtn">
+    <a href="https://whatsapp.com/channel/0029VbDQOGA6rsQzIeG9IQ1b" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<div class="float-ai" id="aiChatBtn">
+    <a href="javascript:void(0)" id="openChatBtn"><i class="fas fa-robot"></i></a>
+</div>
+
+<!-- ===== CHAT POPUP (Same Page) ===== -->
+<div class="chat-overlay" id="chatOverlay">
+    <div class="chat-popup">
+        <div class="chat-header">
+            <h2>🤖 Punjab AI Assistant</h2>
+            <button class="close-btn" id="closeChatBtn">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="bubble">👋 Assalam-o-Alaikum! Main AI Assistant hoon. Apni board result ya koi bhi sawal poochh sakte hain!</div>
+                <span class="time">Just now</span>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button id="sendBtn">➤ Send</button>
+        </div>
     </div>
 </div>
 
 <script>
-    // ===================== 🔑 API KEY (SPLIT INTO 3 PARTS - SAFE) =====================
-    // Aap ki nayi key 3 parts mein split
-    const K1 = "AQ.Ab8RN6IUJV3";
-    const K2 = "ZoPQeZubwljcJTLI";
-    const K3 = "WaJr4p55wZO98zZTG1Zn0vQ";
-    const API_KEY = K1 + K2 + K3;  // Ye mil kar poori key ban jayegi
-    
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-    
+    // ===================== RESULT CHECK FUNCTION =====================
+    function checkResult() {
+        const boardUrl = document.getElementById('boardSelect').value;
+        const roll = document.getElementById('rollNo').value.trim();
+        if (!boardUrl) { alert('Pehle Board select karein!'); return; }
+        if (!roll) { alert('Roll number likhein!'); return; }
+        window.open(boardUrl + '?rollno=' + roll, '_blank');
+    }
+    document.getElementById('rollNo').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') { checkResult(); }
+    });
+
+    // ===================== DRAGGABLE FLOATING BUTTONS =====================
+    function makeDraggable(id) {
+        const el = document.getElementById(id);
+        let isDragging = false, offsetX, offsetY;
+        const onStart = (e) => {
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const rect = el.getBoundingClientRect();
+            offsetX = clientX - rect.left;
+            offsetY = clientY - rect.top;
+            isDragging = true;
+            el.style.cursor = 'grabbing';
+            if (e.type === 'mousedown') e.preventDefault();
+        };
+        const onMove = (e) => {
+            if (!isDragging) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            let x = clientX - offsetX;
+            let y = clientY - offsetY;
+            x = Math.max(0, Math.min(window.innerWidth - el.offsetWidth, x));
+            y = Math.max(0, Math.min(window.innerHeight - el.offsetHeight, y));
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+            el.style.right = 'auto';
+            el.style.bottom = 'auto';
+            if (e.type === 'touchmove') e.preventDefault();
+        };
+        const onEnd = () => { if (isDragging) { isDragging = false; el.style.cursor = 'grab'; } };
+        el.addEventListener('mousedown', onStart);
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onEnd);
+        el.addEventListener('touchstart', onStart, { passive: true });
+        document.addEventListener('touchmove', onMove, { passive: false });
+        document.addEventListener('touchend', onEnd, { passive: true });
+    }
+    makeDraggable('whatsappBtn');
+    makeDraggable('aiChatBtn');
+
+    // ===================== CHAT POPUP CONTROLS =====================
+    const chatOverlay = document.getElementById('chatOverlay');
+    const openBtn = document.getElementById('openChatBtn');
+    const closeBtn = document.getElementById('closeChatBtn');
+    openBtn.addEventListener('click', () => chatOverlay.classList.add('active'));
+    closeBtn.addEventListener('click', () => chatOverlay.classList.remove('active'));
+    chatOverlay.addEventListener('click', function(e) {
+        if (e.target === this) chatOverlay.classList.remove('active');
+    });
+
+    // ===================== CHATBOT LOGIC (Gemini Pro) =====================
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
-    
+
+    // 🔑 API KEY (SPLIT INTO 3 PARTS)
+    const K1 = "AQ.Ab8RN6IUJV3";
+    const K2 = "ZoPQeZubwljcJTLI";
+    const K3 = "WaJr4p55wZO98zZTG1Zn0vQ";
+    const API_KEY = K1 + K2 + K3;
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+
     function addMessage(text, sender, time = new Date()) {
         const div = document.createElement('div');
         div.className = `message ${sender}`;
@@ -81,7 +277,7 @@
         chatMessages.appendChild(div);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-    
+
     function showTyping() {
         const div = document.createElement('div');
         div.className = 'message bot';
@@ -93,64 +289,52 @@
         chatMessages.appendChild(div);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-    
+
     function removeTyping() {
         const typing = document.getElementById('typingIndicator');
         if (typing) typing.remove();
     }
-    
+
     async function getAIResponse(userMessage) {
         const payload = {
             contents: [{ parts: [{ text: userMessage }] }]
         };
-        
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            
             if (!response.ok) {
                 const errorData = await response.json();
                 return '❌ Error: ' + (errorData.error?.message || 'API key galat hai');
             }
-            
             const data = await response.json();
-            const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Maaf karo, samajh nahi aaya.';
-            return aiText;
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || 'Maaf karo, samajh nahi aaya.';
         } catch (error) {
             return '❌ Network Error: Internet check karo';
         }
     }
-    
+
     async function handleSend() {
         const message = userInput.value.trim();
         if (!message) return;
-        
         sendBtn.disabled = true;
         userInput.disabled = true;
-        
         addMessage(message, 'user');
         userInput.value = '';
-        
         showTyping();
-        
         const aiReply = await getAIResponse(message);
-        
         removeTyping();
         addMessage(aiReply, 'bot');
-        
         sendBtn.disabled = false;
         userInput.disabled = false;
         userInput.focus();
     }
-    
+
     sendBtn.addEventListener('click', handleSend);
     userInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && !sendBtn.disabled) {
-            handleSend();
-        }
+        if (e.key === 'Enter' && !sendBtn.disabled) handleSend();
     });
 </script>
 
