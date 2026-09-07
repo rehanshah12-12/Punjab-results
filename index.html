@@ -1,1 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Punjab Board Results 2026 - 9th & 10th Class</title>
+
+  <meta name="description" content="Punjab Board 9th and 10th class results, latest updates, result links and student information.">
+  <meta name="theme-color" content="#0b7a4b">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+        Punjab Results
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="results.html">Results</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+          <span class="badge">🎓 Punjab Board 2026</span>
+
+          <h1>
+            Check Your
+            <span>9th & 10th Class Result</span>
+          </h1>
+
+          <p>
+            Select your board and enter your roll number to quickly
+            find the official result website.
+          </p>
+        </div>
+
+
+        <!-- RESULT BOX -->
+        <div class="result-box">
+
+          <h2>🔎 Check Result</h2>
+
+          <label for="board">Select Board</label>
+
+          <select id="board">
+            <option value="">-- Select Your Board --</option>
+
+            <option value="lahore">BISE Lahore</option>
+            <option value="rawalpindi">BISE Rawalpindi</option>
+            <option value="multan">BISE Multan</option>
+            <option value="faisalabad">BISE Faisalabad</option>
+            <option value="gujranwala">BISE Gujranwala</option>
+            <option value="sahiwal">BISE Sahiwal</option>
+            <option value="dgkhan">BISE D.G. Khan</option>
+            <option value="bahawalpur">BISE Bahawalpur</option>
+            <option value="sargodha">BISE Sargodha</option>
+          </select>
+
+
+          <label for="rollNumber">Roll Number</label>
+
+          <input
+            type="text"
+            id="rollNumber"
+            placeholder="Enter your roll number"
+            inputmode="numeric"
+          >
+
+
+          <button onclick="checkResult()" class="primary-btn">
+            Check Official Result
+          </button>
+
+          <p class="small-text">
+            You will be redirected to the official board result website.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BOARDS -->
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="badge">📚 Punjab Boards</span>
+
+          <h2>All Punjab Education Boards</h2>
+
+          <p>
+            Choose your board to visit its official website.
+          </p>
+        </div>
+
+
+        <div class="board-grid">
+
+          <!-- Lahore -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Lahore</h3>
+
+            <p>
+              Lahore Board official result and education services.
+            </p>
+
+            <a
+              href="https://result.biselahore.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Result
+            </a>
+          </div>
+
+
+          <!-- Rawalpindi -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Rawalpindi</h3>
+
+            <p>
+              Rawalpindi Board official result portal.
+            </p>
+
+            <a
+              href="https://results.biserawalpindi.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Result
+            </a>
+          </div>
+
+
+          <!-- Multan -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Multan</h3>
+
+            <p>
+              Multan Board official website and result services.
+            </p>
+
+            <a
+              href="https://web.bisemultan.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- Faisalabad -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Faisalabad</h3>
+
+            <p>
+              Faisalabad Board official website.
+            </p>
+
+            <a
+              href="https://bisefsd.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- Gujranwala -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Gujranwala</h3>
+
+            <p>
+              Gujranwala Board official website.
+            </p>
+
+            <a
+              href="https://bisegrw.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- Sahiwal -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Sahiwal</h3>
+
+            <p>
+              Sahiwal Board official website.
+            </p>
+
+            <a
+              href="https://bisesahiwal.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- DG Khan -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE D.G. Khan</h3>
+
+            <p>
+              Dera Ghazi Khan Board official website.
+            </p>
+
+            <a
+              href="https://bisedgkhan.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- Bahawalpur -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Bahawalpur</h3>
+
+            <p>
+              Bahawalpur Board official website.
+            </p>
+
+            <a
+              href="https://bisebwp.edu.pk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Website
+            </a>
+          </div>
+
+
+          <!-- Sargodha -->
+          <div class="board-card">
+            <div class="board-icon">🏫</div>
+
+            <h3>BISE Sargodha</h3>
+
+            <p>
+              Sargodha Board official result and education services.
+            </p>
+
+            <a
+              href="https://resultday2.bisesargodha.edu.pk/resultday2.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-btn"
+            >
+              Official Result
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section light-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="badge">✨ Features</span>
+
+          <h2>Why Use Punjab Results?</h2>
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+
+            <h3>Quick Access</h3>
+
+            <p>
+              Quickly find your board's official result website.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+
+            <h3>Official Links</h3>
+
+            <p>
+              Result links are provided for official board websites.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+
+            <h3>Mobile Friendly</h3>
+
+            <p>
+              Use the website easily on your mobile phone.
+            </p>
+          </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+
+            <h3>AI Assistant</h3>
+
+            <p>
+              Ask our built-in assistant about boards and results.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHATSAPP -->
+    <section class="whatsapp-section">
+
+      <div class="container whatsapp-box">
+
+        <div>
+          <span class="badge">📢 Stay Updated</span>
+
+          <h2>Join Our WhatsApp Channel</h2>
+
+          <p>
+            Get result announcements and important updates.
+          </p>
+        </div>
+
+
+        <a
+          href="https://whatsapp.com/channel/0029VbDQOGA6rsQzIeG9IQ1b"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whatsapp-btn"
+        >
+          Join WhatsApp
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container footer-content">
+
+      <div>
+        <h3>Punjab Results</h3>
+
+        <p>
+          Your simple guide to Punjab Board results and updates.
+        </p>
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">Home</a>
+        <a href="results.html">Results</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 Punjab Results. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- FLOATING AI BUTTON -->
+  <button
+    class="ai-float"
+    onclick="openChat()"
+    aria-label="Open AI Assistant"
+  >
+    🤖
+  </button>
+
+
+  <!-- CHAT WINDOW -->
+  <div id="chatBox" class="chat-box">
+
+    <div class="chat-header">
+
+      <div>
+        <strong>Punjab AI Assistant</strong>
+        <small>Online • Ready to help</small>
+      </div>
+
+      <button onclick="closeChat()" class="close-chat">
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="chatMessages" class="chat-messages">
+
+      <div class="bot-message">
+        👋 Assalam-o-Alaikum!  
+        <br><br>
+        Main Punjab Results Assistant hoon. Aap mujh se boards,
+        results, 9th class, 10th class aur updates ke baare mein
+        pooch sakte hain.
+      </div>
+
+    </div>
+
+
+    <div class="chat-input-area">
+
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Apna sawal likhein..."
+        onkeydown="handleChatKey(event)"
+      >
+
+      <button onclick="sendMessage()" class="send-btn">
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <a
+    href="https://whatsapp.com/channel/0029VbDQOGA6rsQzIeG9IQ1b"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="WhatsApp Channel"
+  >
+    💬
+  </a>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
